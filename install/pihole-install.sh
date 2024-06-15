@@ -39,7 +39,7 @@ WEBPASSWORD=$(openssl rand -base64 48)
 BLOCKING_ENABLED=true
 EOF
 # View script https://install.pi-hole.net
-$STD bash <(curl -fsSL https://install.pi-hole.net) --unattended
+$STD bash <(curl -fsSL https://install.pi-hole.net | sudo PIHOLE_SKIP_OS_CHECK=true) --unattended
 msg_ok "Installed Pi-hole"
 
 read -r -p "Would you like to add Unbound? <y/N> " prompt
